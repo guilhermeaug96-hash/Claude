@@ -1,5 +1,6 @@
 import { useState, type ImgHTMLAttributes } from 'react'
 import { ImageOff } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 type Props = ImgHTMLAttributes<HTMLImageElement> & {
   fallbackLabel?: string
@@ -12,12 +13,26 @@ export default function ImageWithFallback({ fallbackLabel, alt, className, ...re
 
   if (failed) {
     return (
-      <div className={`image-fallback ${className ?? ''}`} role="img" aria-label={alt || fallbackLabel}>
+      <div
+        className={cn(
+          'flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-chocolate-premium via-chocolate-dark to-caramel-gold px-4 text-center text-vanilla-cream',
+          className,
+        )}
+        role="img"
+        aria-label={alt || fallbackLabel}
+      >
         <ImageOff size={28} strokeWidth={1.5} aria-hidden="true" />
-        {fallbackLabel && <span>{fallbackLabel}</span>}
+        {fallbackLabel && <span className="text-xs font-semibold">{fallbackLabel}</span>}
       </div>
     )
   }
 
-  return <img {...rest} alt={alt} className={className} onError={() => setFailed(true)} />
+  return (
+    <img
+      {...rest}
+      alt={alt}
+      className={cn('h-full w-full object-cover', className)}
+      onError={() => setFailed(true)}
+    />
+  )
 }

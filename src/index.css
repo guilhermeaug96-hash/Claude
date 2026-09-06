@@ -1,7 +1,98 @@
-@import './styles/tokens.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&display=swap');
+@import 'tailwindcss';
 
-#root {
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+@theme {
+  --font-display: 'Poppins', system-ui, sans-serif;
+  --font-body: 'Nunito Sans', system-ui, sans-serif;
+
+  /* ChocoPass brand book */
+  --color-chocolate-dark: #3b1d0b;
+  --color-chocolate-premium: #5a2410;
+  --color-caramel-gold: #d67200;
+  --color-glow-gold: #ffb236;
+  --color-vanilla-cream: #f7ece6;
+  --color-gold-premium: #ffd166;
+  --color-beige: #f6f1ea;
+  --color-gray-light: #e6e1dc;
+}
+
+:root {
+  --background: var(--color-vanilla-cream);
+  --foreground: var(--color-chocolate-dark);
+
+  --card: #ffffff;
+  --card-foreground: var(--color-chocolate-dark);
+
+  --primary: var(--color-caramel-gold);
+  --primary-foreground: var(--color-chocolate-dark);
+
+  --secondary: var(--color-chocolate-premium);
+  --secondary-foreground: #ffffff;
+
+  --accent: var(--color-glow-gold);
+  --accent-foreground: var(--color-chocolate-dark);
+
+  /* Darker than caramel-gold: used for small text on light backgrounds,
+     where the raw brand gold falls under 4.5:1 contrast. */
+  --accent-text: var(--color-chocolate-premium);
+
+  --muted: var(--color-beige);
+  --muted-foreground: #6b5c4f;
+
+  --border: var(--color-gray-light);
+  --ring: var(--color-caramel-gold);
+
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-text: var(--accent-text);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-sm: calc(var(--radius) - 8px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-caramel-gold);
+    outline-offset: 2px;
+  }
 }

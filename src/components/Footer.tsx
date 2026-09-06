@@ -1,18 +1,18 @@
 import { brand, categories } from '../data/chocopass'
-import './Footer.css'
+import logo from '../assets/logo/logo-gold-transparent.png'
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="container footer__grid">
+    <footer className="mt-auto bg-chocolate-dark py-12 text-vanilla-cream/85">
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:grid-cols-[1.4fr_1fr_1fr] sm:px-6">
         <div>
-          <span className="footer__logo">{brand.name}</span>
-          <p className="footer__tagline">{brand.tagline}</p>
+          <img src={logo} alt="ChocoPass" className="h-14 w-auto" />
+          <p className="mt-3 max-w-[30ch] text-sm">{brand.shortTagline}</p>
         </div>
 
         <div>
-          <h3>Categorias</h3>
-          <ul>
+          <h3 className="mb-3 text-sm font-bold text-vanilla-cream">Categorias</h3>
+          <ul className="flex flex-col gap-2 text-sm">
             {categories.map((category) => (
               <li key={category.slug}>{category.nome}</li>
             ))}
@@ -20,23 +20,29 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3>Empresa</h3>
-          <ul>
+          <h3 className="mb-3 text-sm font-bold text-vanilla-cream">Empresa</h3>
+          <ul className="flex flex-col gap-2 text-sm">
             <li>
-              <a href="#sobre">O que é o ChocoPass</a>
+              <a href="#sobre" className="hover:text-vanilla-cream">
+                O que é o ChocoPass
+              </a>
             </li>
             <li>
-              <a href="#parceiros">Parceiros</a>
+              <a href="#parceiros" className="hover:text-vanilla-cream">
+                Parceiros
+              </a>
             </li>
             <li>
-              <a href="#como-funciona">Como funciona</a>
+              <a href="#como-funciona" className="hover:text-vanilla-cream">
+                Como funciona
+              </a>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="container footer__bottom">
-        <span>© {new Date().getFullYear()} {brand.name}. Todos os direitos reservados.</span>
+      <div className="mx-auto mt-8 max-w-6xl border-t border-vanilla-cream/15 px-4 pt-6 text-xs opacity-70 sm:px-6">
+        © {new Date().getFullYear()} {brand.name}. Todos os direitos reservados.
       </div>
     </footer>
   )

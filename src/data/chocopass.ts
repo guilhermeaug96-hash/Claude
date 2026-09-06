@@ -3,7 +3,7 @@ export const brand = {
   tagline: 'Seu passaporte de descontos para o Cacau Park',
   description:
     'Simule sua viagem à costa do cacau e descubra quanto pode economizar: descontos reais em hospedagem, alimentação, lazer, lojas e cafés.',
-  accent: '#C49A3C',
+  shortTagline: 'Mais momentos. Mais sorrisos. Mais Cacau Park.',
 }
 
 export const quote = {
