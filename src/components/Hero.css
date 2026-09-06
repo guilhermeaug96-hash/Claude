@@ -78,7 +78,8 @@
   max-width: 420px;
 }
 
-.hero__visual img {
+.hero__visual img,
+.hero__visual .image-fallback {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;

@@ -1,5 +1,6 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { brand } from '../data/chocopass'
+import ImageWithFallback from './ImageWithFallback'
 import './Hero.css'
 
 export default function Hero() {
@@ -60,9 +61,10 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
         >
-          <img
+          <ImageWithFallback
             src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=1000&q=80"
             alt="Chocolate artesanal produzido na costa do cacau"
+            fallbackLabel="Chocolate artesanal · Costa do Cacau"
           />
           <div className="hero__visual-drip" aria-hidden="true" />
           <div className="hero__stat-card">

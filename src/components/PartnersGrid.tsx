@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Star, MapPin } from 'lucide-react'
 import { partners } from '../data/chocopass'
 import { useRevealVariants, useStaggerContainer } from '../hooks/useMotionPreset'
+import ImageWithFallback from './ImageWithFallback'
 import './PartnersGrid.css'
 
 export default function PartnersGrid() {
@@ -30,7 +31,7 @@ export default function PartnersGrid() {
               variants={reveal}
             >
               <div className="partners__image-wrap">
-                <img src={partner.capa} alt="" />
+                <ImageWithFallback src={partner.capa} alt="" fallbackLabel={partner.nome} />
                 <span className="partners__tag">{partner.tag}</span>
               </div>
 

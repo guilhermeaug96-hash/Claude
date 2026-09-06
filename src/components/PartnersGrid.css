@@ -38,7 +38,8 @@
   aspect-ratio: 4 / 3;
 }
 
-.partners__image-wrap img {
+.partners__image-wrap img,
+.partners__image-wrap .image-fallback {
   width: 100%;
   height: 100%;
   object-fit: cover;
